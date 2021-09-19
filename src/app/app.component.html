@@ -1,18 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <body class="container-fluid">
-    <h1 class="bold py-2">Weather Forecast</h1>
-    <section class="weather-section pt-4 pb-2">
-      <label class="bold d-block">City</label>
-      <select name="city" id="city" (change)="onCityChange($event)">
-        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-      </select>
-      <div *ngFor="let foreCast of foreCastData">
+<div class="forecast-page container">
+  <h1 class="bold py-2">Weather Forecast</h1>
+  <section class="weather-section pt-4 pb-2">
+    <label class="bold d-block font-m">City</label>
+    <select
+      class="city-select w-100 py-2 px-1 font-m"
+      name="city"
+      id="city"
+      (change)="onCityChange($event)"
+    >
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+
+    <div class="row py-2">
+      <div class="col text-center" *ngFor="let foreCast of foreCastData">
         <label>{{ foreCast.datetime | date: 'EEEE MMM d' }}</label>
         <img src="" alt="weather icon" />
         <label>{{ foreCast.app_max_temp | celciussuffix }}</label>
       </div>
+    </div>
+
+    <div class="text-right">
       <button type="button" class="btn" (click)="applyChanges()">Apply</button>
-    </section>
-  </body>
-</html>
+    </div>
+  </section>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+  [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
