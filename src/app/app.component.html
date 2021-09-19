@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body class="container-fluid">
+    <h1 class="bold py-2">Weather Forecast</h1>
+    <section class="weather-section pt-4 pb-2">
+      <label class="bold d-block">City</label>
+      <select name="city" id="city" (change)="onCityChange($event)">
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+      </select>
+      <div *ngFor="let foreCast of foreCastData">
+        <label>{{ foreCast.datetime | date: 'EEEE MMM d' }}</label>
+        <img src="" alt="weather icon" />
+        <label>{{ foreCast.app_max_temp | celciussuffix }}</label>
+      </div>
+      <button type="button" class="btn" (click)="applyChanges()">Apply</button>
+    </section>
+  </body>
+</html>
