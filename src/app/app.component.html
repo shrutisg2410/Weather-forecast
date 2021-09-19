@@ -15,13 +15,17 @@
       <div class="row py-2">
         <div class="col text-center" *ngFor="let foreCast of foreCastData">
           <label>{{ foreCast.datetime | date: 'EEEE MMM d' }}</label>
-          <img src="../../src/assets/icons/a02d.png" alt="weather icon" class="my-2" />
+          <img
+            src="../../src/assets/icons/a02d.png"
+            alt="weather icon"
+            class="my-2"
+          />
           <label>{{ foreCast.app_max_temp | celciussuffix }}</label>
         </div>
       </div>
 
-      <div class="text-right">
-        <button type="button" class="btn" (click)="applyChanges()">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn bold" (click)="applyChanges()">
           Apply
         </button>
       </div>

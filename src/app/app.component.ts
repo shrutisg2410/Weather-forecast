@@ -33,10 +33,16 @@ export class AppComponent {
       key: this.apiKey,
     };
 
-    this.http.get(this.url, { params }).subscribe((res: any) => {
-      this.foreCastData = res.data;
-      this.spinner.hide();
-    });
+    this.http.get(this.url, { params }).subscribe(
+      (res: any) => {
+        this.foreCastData = res.data;
+        this.spinner.hide();
+      },
+      (err) => {
+        console.log(err);
+        this.spinner.hide();
+      }
+    );
   }
 
   /**
