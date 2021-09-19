@@ -14,7 +14,7 @@
     <div class="row py-2">
       <div class="col text-center" *ngFor="let foreCast of foreCastData">
         <label>{{ foreCast.datetime | date: 'EEEE MMM d' }}</label>
-        <img src="" alt="weather icon" />
+        <img src="../../src/assets/icons/a02d.png" alt="weather icon" />
         <label>{{ foreCast.app_max_temp | celciussuffix }}</label>
       </div>
     </div>
